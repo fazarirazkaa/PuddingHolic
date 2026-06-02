@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PuddingHolic Website
 
-## Getting Started
+Website promosi untuk PuddingHolic dengan landing page interaktif, slideshow hero, dan pilihan varian rasa.
 
-First, run the development server:
+## Fitur Utama
+
+- Hero slideshow otomatis.
+- Pilih varian rasa untuk melihat foto produk.
+- CTA terhubung ke Google Form pemesanan.
+- Tampilan responsif untuk mobile dan desktop.
+
+## Tech Stack
+
+- Next.js (App Router)
+- React
+- Tailwind CSS
+
+## Prasyarat
+
+- Node.js 18+ (disarankan LTS)
+- npm (atau pnpm/yarn/bun)
+
+## Menjalankan Secara Lokal
+
+1) Install dependencies
+
+```bash
+npm install
+```
+
+2) Jalankan dev server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3) Buka di browser
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Struktur Folder
 
-## Learn More
+```text
+public/
+	images/
+src/
+	app/
+		data.js
+		globals.css
+		layout.js
+		page.js
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Konfigurasi
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Data konten utama ada di `src/app/data.js`.
+- Metadata dan font ada di `src/app/layout.js`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Build Produksi
 
-## Deploy on Vercel
+```bash
+npm run build
+npm run start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy ke Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1) Push repo ke GitHub.
+2) Impor project di Vercel.
+3) Framework preset: Next.js (auto).
+4) Klik Deploy.
+
+## Troubleshooting (Dev di Jaringan Lokal)
+
+Jika akses lewat IP jaringan tidak bisa (slideshow/tombol tidak jalan), tambahkan `allowedDevOrigins` pada `next.config.mjs` lalu restart dev server.
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+	allowedDevOrigins: ['192.168.0.193'],
+};
+
+export default nextConfig;
+```
